@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %} 
+<h1>Account has been verified</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}

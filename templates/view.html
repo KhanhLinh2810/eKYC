@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block title %}View Page{% endblock %}
+{% block content %} 
+<h1>User Information</h1>
+<p>Name: {{ user.name }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Phone: {{ user.phone }}</p>
+<img src="{{ user.portrait_path}}" />
+{% endblock %}

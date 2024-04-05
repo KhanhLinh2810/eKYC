@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block title %}Upload Portrait Page{% endblock %}
+{% block content %} 
+<h1>Upload Portrait Page</h1>
+<div>
+    <form method="post"  enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        {{form.file()}}
+        {{form.submit()}}
+    </form>
+</div>
+{% endblock %}
