@@ -1,7 +1,14 @@
 {% extends "index.html" %}
 {% block title %}Detect Deepfake Page{% endblock %}
 {% block content %} 
-<h1>Upload Your Image</h1>
+<h1>Upload Your Image To Check Deepfake</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 <div>
     <form method="post"  enctype="multipart/form-data">
         <input type="file" name="image">

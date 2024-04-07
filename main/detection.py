@@ -2,10 +2,11 @@ from flask import Blueprint, redirect, url_for, render_template, flash, session,
 from keras.models import load_model
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
+
 import cv2
 import numpy as np
 
-detection = Blueprint("detection", __name__, static_folder="static", template_folder="templates")
+detection = Blueprint("detection", __name__, static_folder="../static", template_folder="../templates")
 
 model_detect_deepfake = load_model('Model.h5')
 
@@ -33,12 +34,12 @@ def detectDeepfake():
                 else:
                     flash("It is not a deepfake image")
 
-                return redirect(url_for("home"))
+                return redirect(url_for("recognition.recognize"))
             else:
                 flash("Invalid file type. Only JPG, JPEG, PNG are allowed.")
                 return render_template("detect.html")
         else:
             return render_template("detect.html")
     else:
-        return redirect(url_for("login"))
+        return redirect(url_for("auth.login"))
 
